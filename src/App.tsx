@@ -2,7 +2,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import {
   CalendarDays,
   Check,
-  ChevronDown,
   Heart,
   MapPin,
   Navigation,
@@ -10,8 +9,8 @@ import {
   Volume2,
   VolumeX,
 } from "lucide-react";
-import heroIslandWedding from "../assets/hero-island-wedding-v3.webp";
-import islandBroadcast from "../assets/island-broadcast-v2.webp";
+import heroIslandWedding from "../assets/hero-island-wedding-v4.webp";
+import islandBroadcast from "../assets/island-broadcast-v3.webp";
 import nookInc from "../assets/nook-inc.png";
 import tidesOfPromise from "../assets/tides-of-promise.mp3";
 import weddingSeason from "../assets/wedding-season-hd.jpg";
@@ -19,8 +18,8 @@ import weddingSeason from "../assets/wedding-season-hd.jpg";
 const schedule = [
   {
     time: "14:30",
-    title: "码头集合",
-    note: "Dodo 航空柜台领取登岛券",
+    title: "机场前集合",
+    note: "在机场输入 5 位 Dodo 密码，飞往晴屿岛",
     icon: Plane,
   },
   {
@@ -31,14 +30,14 @@ const schedule = [
   },
   {
     time: "17:20",
-    title: "岛民晚宴",
+    title: "岛上晚宴",
     note: "树影餐桌、蛋糕与第一支舞",
     icon: CalendarDays,
   },
   {
     time: "20:00",
     title: "星空散步",
-    note: "带上仙女棒去北岸看流星",
+    note: "若天气晴朗，就带上仙女棒去北岸看星星",
     icon: Navigation,
   },
 ];
@@ -210,7 +209,7 @@ export function App() {
         <img
           className="hero-key-visual"
           src={heroIslandWedding}
-          alt="晴屿岛的婚礼现场，新人在花门前牵手，豆狸粒狸与水上飞机在一旁迎接宾客"
+          alt="晴屿岛的婚礼现场，新人在白色花门前牵手，渡渡鸟机组与水上飞机在机场旁迎接宾客"
           fetchPriority="high"
         />
         <nav className="island-nav" aria-label="页面导航">
@@ -226,7 +225,7 @@ export function App() {
 
         <div className="hero-copy">
           <p className="eyebrow">
-            <Plane size={17} /> DODO AIRLINES · 特别航班 DA-1001
+            <Plane size={17} /> DODO AIRLINES · 晴屿岛特别航班
           </p>
           <div className="hero-poster-title">
             <h1>晴屿岛婚礼</h1>
@@ -246,7 +245,7 @@ export function App() {
               <MapPin aria-hidden="true" />
               <span>
                 <b>青屿湖畔礼堂</b>
-                <small>南码头集合</small>
+                <small>机场前集合</small>
               </span>
             </span>
           </div>
@@ -256,20 +255,13 @@ export function App() {
             查看登岛安排 <Plane size={17} />
           </button>
         </div>
-        <button className="scroll-cue" onClick={jump}>
-          <span>抵达岛屿</span>
-          <ChevronDown />
-        </button>
       </section>
 
       <section className="broadcast" id="broadcast">
-        <div className="broadcast-transition" aria-hidden="true">
-          <img src={heroIslandWedding} alt="" />
-        </div>
         <img
           className="broadcast-scene"
           src={islandBroadcast}
-          alt="黄色犬类岛屿秘书在鲜花装点的服务处播报婚礼消息"
+          alt="西施惠在鲜花装点的服务处播报晴屿岛婚礼消息"
           loading="lazy"
           decoding="async"
         />
@@ -279,9 +271,9 @@ export function App() {
         </div>
         <div className="broadcast-dialogue">
           <span className="broadcast-speaker">岛内广播</span>
-          <p>晴屿岛的各位，下午好！</p>
+          <p>晴屿岛的各位岛民，大家下午好！</p>
           <p>
-            今天岛上将迎来一场特别的婚礼。请准备好登岛券，我们在南码头见！
+            现在开始播报今天的岛内广播。今天岛上将举行一场特别的婚礼，请大家在 14:30 到机场前集合！
           </p>
         </div>
       </section>
@@ -302,7 +294,7 @@ export function App() {
                 <CalendarDays />
               </span>
               <div>
-                <small>Nook Miles+</small>
+                <small>晴屿岛限定应用</small>
                 <b>晴屿岛婚礼日</b>
               </div>
             </div>
@@ -331,7 +323,7 @@ export function App() {
           <div
             className="map-art"
             role="img"
-            aria-label="晴屿岛婚礼日路线图：14:30 南码头集合，15:18 仪式草坪，17:20 晚宴区，20:00 北岸散步"
+            aria-label="晴屿岛婚礼日路线图：14:30 机场前集合，15:18 仪式草坪，17:20 晚宴区，20:00 北岸散步"
           >
             <div className="island-shape" aria-hidden="true" />
             <svg className="map-river" viewBox="0 0 100 100" aria-hidden="true">
@@ -349,7 +341,7 @@ export function App() {
             <span className="map-detail detail-orchard" aria-hidden="true" />
             <span className="pin pin-a">
               <i>1</i>
-              <b>南码头</b>
+              <b>机场前</b>
               <small>14:30</small>
             </span>
             <span className="pin pin-b">
@@ -375,7 +367,11 @@ export function App() {
             <dl>
               <div>
                 <dt>集合地点</dt>
-                <dd>青屿湖畔礼堂 · 南码头</dd>
+                <dd>晴屿岛机场前广场</dd>
+              </div>
+              <div>
+                <dt>婚礼地点</dt>
+                <dd>青屿湖畔礼堂</dd>
               </div>
               <div>
                 <dt>建议穿着</dt>
@@ -406,7 +402,7 @@ export function App() {
             loading="lazy"
             decoding="async"
           />
-          <span>HARV'S ISLAND · WEDDING SEASON</span>
+          <span>巴猎岛 · 六月婚礼季留影</span>
         </div>
         <div className="photo-copy">
           <h2>
@@ -415,7 +411,7 @@ export function App() {
             这次轮到我们。
           </h2>
           <span>
-            这里将换成我们的合影。现在先借婚礼季，预演那天的浪漫。
+            每年六月，莉咏和健兆都会去巴猎岛拍结婚纪念照。今天，我们也把这份粉色浪漫搬到了晴屿岛。
           </span>
         </div>
       </section>
@@ -437,7 +433,7 @@ export function App() {
               if (!name.trim()) {
                 showFormError(
                   "guestName",
-                  "请填写岛民姓名后再领取登岛券。",
+                  "请填写你的姓名后再提交回执。",
                   '[name="guestName"]',
                 );
                 return;
@@ -487,12 +483,12 @@ export function App() {
                   <Check />
                 </span>
                 <h2 ref={successHeadingRef} tabIndex={-1}>
-                  登岛手续完成！
+                  出席回执已登记！
                 </h2>
                 <p>
                   {name}，已为你预留 {partySize} 个席位
                   {accommodation === "yes" ? "，住宿时间也已记录" : ""}。
-                  婚礼当天见！
+                  婚礼当天见！Dodo 密码会在婚礼前发送给你。
                 </p>
                 <button
                   type="button"
@@ -676,10 +672,10 @@ export function App() {
                   </p>
                 )}
                 <button className="submit-button" type="submit">
-                  领取登岛券 <Plane />
+                  确认出席 <Plane />
                 </button>
                 <p className="form-note">
-                  以上信息仅用于本次婚礼的席位与住宿安排。
+                  以上信息仅用于本次婚礼的席位与住宿安排。Dodo 密码将在婚礼前发送。
                 </p>
               </>
             )}
@@ -690,7 +686,7 @@ export function App() {
       <footer>
         <img src={nookInc} alt="Nook Inc." loading="lazy" decoding="async" />
         <p>这是一份私人、非商业的粉丝概念请柬，与 Nintendo 无官方关联。</p>
-        <a href="#top">返回岛顶</a>
+        <a href="#top">返回顶部</a>
       </footer>
     </main>
   );

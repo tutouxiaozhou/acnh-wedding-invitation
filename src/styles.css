@@ -246,7 +246,7 @@ main {
 .hero-cta-slot {
   position: absolute;
   z-index: 8;
-  top: 77.5%;
+  top: 83.5%;
   right: 0;
   left: 0;
   display: flex;
@@ -255,12 +255,12 @@ main {
   pointer-events: none;
 }
 .hero-cta-slot .hero-cta {
-  width: clamp(170px, 42%, 218px);
-  min-height: 48px;
-  padding: 10px 16px;
+  width: clamp(146px, 34%, 184px);
+  min-height: 44px;
+  padding: 7px 12px;
   pointer-events: auto;
   box-shadow: 0 4px 0 #b98527, 0 8px 16px #2b5b5124;
-  font-size: 14px;
+  font-size: 12.5px;
   white-space: nowrap;
 }
 .hero-cta-slot .hero-cta:active {
@@ -284,13 +284,18 @@ main {
   font-family: var(--font-ui);
   font-weight: 400;
 }
+.primary-button svg,
+.submit-button svg,
+.map-link svg,
+.agenda-icon svg,
+.app-icon svg {
+  stroke-width: 2.7;
+}
 .primary-button:active,
 .submit-button:active {
   transform: translateY(4px);
   box-shadow: 0 2px 0 #b98527, 0 7px 14px #2b5b5127;
 }
-
-.scroll-cue { display: none; }
 
 .broadcast {
   position: relative;
@@ -306,30 +311,6 @@ main {
   height: 100%;
   object-fit: cover;
   object-position: center center;
-}
-.broadcast-transition {
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: 96px;
-  overflow: hidden;
-  pointer-events: none;
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #0009 34%, transparent 100%);
-  mask-image: linear-gradient(to bottom, #000 0%, #0009 34%, transparent 100%);
-}
-.broadcast-transition img {
-  position: absolute;
-  right: 0;
-  bottom: 100%;
-  left: 0;
-  width: 100%;
-  height: 100svh;
-  transform: scaleY(-1);
-  transform-origin: center bottom;
-  object-fit: cover;
-  object-position: 48% center;
 }
 .broadcast-hud {
   position: absolute;
@@ -358,9 +339,9 @@ main {
   position: absolute;
   z-index: 3;
   top: 41%;
-  right: 2%;
+  right: 0;
   bottom: 7%;
-  left: 52%;
+  left: 54%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -904,7 +885,7 @@ textarea:focus-visible {
   .event-summary > span { gap: 5px; }
   .event-summary > span + span { padding-left: 9px; }
   .event-summary b { font-size: 11px; }
-  .broadcast-dialogue { top: 40%; right: 2%; bottom: 7%; left: 50%; font-size: 12px; line-height: 1.52; }
+  .broadcast-dialogue { top: 40%; right: 0; bottom: 7%; left: 52%; font-size: 12px; line-height: 1.52; }
   .broadcast-speaker { margin-bottom: 7px; padding: 5px 10px; }
   .pin { column-gap: 4px; padding-right: 6px; }
   .passport-page { padding-inline: 26px; }
@@ -916,7 +897,165 @@ textarea:focus-visible {
   .eyebrow { display: none; }
   .hero-poster-title h1 { font-size: 38px; }
   .event-summary { margin-top: 10px; padding-block: 7px; }
-  .hero-cta-slot { top: 76.5%; }
+  .hero-cta-slot { top: 82.5%; }
+}
+
+@media (min-width: 900px) {
+  body {
+    background-color: #dff4ed;
+    background-image:
+      radial-gradient(circle at 12% 18%, #ffffff8f 0 2px, transparent 3px),
+      radial-gradient(circle at 84% 72%, #74c7b725 0 3px, transparent 4px);
+    background-size: 48px 48px, 64px 64px;
+  }
+
+  main {
+    max-width: 1120px;
+    box-shadow: 0 0 90px #1f5d5252;
+  }
+
+  .hero {
+    min-height: 720px;
+    padding: 150px 72px 80px;
+    background:
+      linear-gradient(180deg, #70d6ef 0 69%, #79c957 69% 100%);
+  }
+  .hero::before {
+    background:
+      linear-gradient(180deg, #eafcffb0 0%, transparent 48%),
+      radial-gradient(circle at 17% 19%, #fff 0 18px, transparent 19px),
+      radial-gradient(circle at 20% 19%, #fff 0 25px, transparent 26px),
+      radial-gradient(circle at 23% 19%, #fff 0 15px, transparent 16px);
+    opacity: 0.86;
+  }
+  .hero-key-visual {
+    right: 0;
+    left: auto;
+    width: 74%;
+    object-position: center 72%;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 23%, #000 100%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 23%, #000 100%);
+  }
+  .island-nav {
+    right: 72px;
+    left: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+  }
+  .island-nav > div { display: flex; gap: 28px; }
+  .island-nav > div a {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+  }
+  .hero-copy { max-width: 470px; }
+  .hero-poster-title h1 { font-size: 68px; }
+  .hero-poster-title p { font-size: 23px; }
+  .event-summary { max-width: 390px; margin-top: 22px; padding: 13px 15px; }
+  .event-summary b { font-size: 14px; }
+  .event-summary small { font-size: 12px; }
+  .hero-cta-slot {
+    position: static;
+    justify-content: flex-start;
+    margin-top: 18px;
+    padding: 0;
+    pointer-events: auto;
+  }
+  .hero-cta-slot .hero-cta {
+    width: auto;
+    min-width: 190px;
+    padding: 13px 21px;
+    font-size: 15px;
+  }
+
+  .broadcast { height: 650px; }
+  .broadcast-scene { object-position: center 66%; }
+  .broadcast-dialogue {
+    top: 40%;
+    right: 4%;
+    bottom: 8%;
+    left: 52%;
+    font-size: 16px;
+    line-height: 1.65;
+  }
+  .broadcast-dialogue p { max-width: 360px; margin-bottom: 10px; }
+  .broadcast-speaker { font-size: 13px; }
+
+  .phone-zone {
+    display: grid;
+    min-height: 720px;
+    grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+    align-items: center;
+    gap: 78px;
+    padding: 88px 110px;
+  }
+  .phone-zone .section-heading {
+    margin: 0;
+    text-align: left;
+  }
+  .phone-zone .section-heading h2 {
+    max-width: 430px;
+    font-size: 50px;
+    white-space: normal;
+  }
+  .phone-zone .section-heading span { display: block; margin-top: 14px; font-size: 15px; }
+  .phone-shell { width: 100%; max-width: 390px; margin: 0; }
+
+  .map-section { padding: 100px 72px 112px; }
+  .map-board {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.7fr);
+    align-items: stretch;
+  }
+  .map-art { min-height: 520px; }
+  .map-copy { padding: 54px 34px; align-content: center; }
+  .map-copy dl div { grid-template-columns: 72px minmax(0, 1fr); padding: 13px 0; }
+  .map-copy dt { font-size: 12px; }
+  .map-copy dd { font-size: 14px; }
+  .map-link { margin-top: 15px; }
+  .pin { font-size: 12px; }
+
+  .photo-section {
+    display: grid;
+    min-height: 570px;
+    grid-template-columns: minmax(0, 1.1fr) minmax(340px, 0.9fr);
+    align-items: center;
+    gap: 76px;
+    padding: 92px 76px;
+  }
+  .wedding-photo { max-width: 540px; margin: 0; }
+  .photo-copy { max-width: 390px; margin: 0; text-align: left; }
+  .photo-copy h2 { font-size: 48px; }
+  .photo-copy > span { font-size: 15px; }
+
+  .rsvp-section { padding: 100px 84px 112px; }
+  .passport {
+    display: grid;
+    max-width: 900px;
+    grid-template-columns: minmax(300px, 0.8fr) minmax(440px, 1.2fr);
+    margin: 0 auto;
+  }
+  .passport-cover {
+    min-height: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    justify-items: center;
+    align-content: center;
+    padding: 58px 35px;
+    border-right: 5px solid #1a6e61;
+    border-bottom: 0;
+    text-align: center;
+  }
+  .passport-cover .leaf-mark {
+    grid-row: auto;
+    margin-bottom: 22px;
+    transform: rotate(-35deg) scale(1);
+    transform-origin: center;
+  }
+  .passport-cover h2 { margin: 7px 0; font-size: 42px; }
+  .passport-page { min-height: 620px; padding: 54px 54px 58px; }
 }
 
 @media (hover: hover) {
